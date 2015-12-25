@@ -1,0 +1,20 @@
+﻿Build started 2015/12/25 10:09:21.
+     1>Project "e:\Users\dell\Documents\Visual Studio 2013\Projects\WindOpenCV2.49\WindOpenCV2.49\WindOpenCV2.49.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /sdl /O2 /Oi /Oy- /GL /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MethodGMM.cpp
+         MethodGMM.cpp
+     1>MethodGMM.cpp(136): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+       Link:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"e:\Users\dell\Documents\Visual Studio 2013\Projects\WindOpenCV2.49\Release\WindOpenCV2.49.exe" /NOLOGO opencv_contrib249.lib opencv_core249.lib opencv_features2d249.lib opencv_flann249.lib opencv_gpu249.lib opencv_highgui249.lib opencv_imgproc249.lib opencv_legacy249.lib opencv_ml249.lib opencv_objdetect249.lib opencv_ts249.lib opencv_video249.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"e:\Users\dell\Documents\Visual Studio 2013\Projects\WindOpenCV2.49\Release\WindOpenCV2.49.pdb" /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"e:\Users\dell\Documents\Visual Studio 2013\Projects\WindOpenCV2.49\Release\WindOpenCV2.49.lib" /MACHINE:X86 /SAFESEH Release\common.obj
+         Release\main.obj
+         Release\MethodBase.obj
+         Release\MethodDframe.obj
+         Release\MethodGMM.obj
+         Generating code
+         Finished generating code
+         WindOpenCV2.49.vcxproj -> e:\Users\dell\Documents\Visual Studio 2013\Projects\WindOpenCV2.49\Release\WindOpenCV2.49.exe
+     1>Done Building Project "e:\Users\dell\Documents\Visual Studio 2013\Projects\WindOpenCV2.49\WindOpenCV2.49\WindOpenCV2.49.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:01.95
