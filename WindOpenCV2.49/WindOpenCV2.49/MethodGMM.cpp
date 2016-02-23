@@ -28,15 +28,15 @@ void MethodGMM::MainLoop()
 		// 运动前景检测，并更新背景  
 		//mog->apply(frame, foreground, 0.01);
 
-		bg_model(frame, foreground, 0.01);
+		bg_model(frame, foreground, learnRate);
 
+		// 去除孤立噪点
 		// 腐蚀  
-		cv::erode(foreground, foreground, cv::Mat(), Point(-1, -1), 4);
+		cv::erode(foreground, foreground, cv::Mat(), Point(-1, -1), ErodeStrength);
 		// 膨胀  
-		cv::dilate(foreground, foreground, cv::Mat(), Point(-1, -1), 4);
+		cv::dilate(foreground, foreground, cv::Mat(), Point(-1, -1), ErodeStrength);
 
-		//  // 返回当前背景图像  
-		//mog->getBackgroundImage(background);
+		// 返回当前背景图像  
 		bg_model.getBackgroundImage(background);
 
 		threshold(foreground, foreground, 100, 255, THRESH_BINARY);
@@ -52,14 +52,14 @@ void MethodGMM::MainLoop()
 		#pragma region detectLine 
 		vector<vector<Point>> contours;
 		//// find 
-		//findContours(foreground, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
-		findContours(foreground, contours, RETR_TREE, CHAIN_APPROX_SIMPLE);
+		findContours(foreground, contours, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE);
+		//findContours(foreground, contours, RETR_TREE, CHAIN_APPROX_SIMPLE);
 		// draw 
 		Mat result(foreground.size(), 0, Scalar(0));
 		drawContours(result, contours, -1, Scalar(255), 2);
 		
 		
-		//=======================================
+		////=======================================
 		//snake方法
 		//vector<Point>   InitContour;
 		//CvPoint* point = new CvPoint[2000]; //分配轮廓点
@@ -78,14 +78,12 @@ void MethodGMM::MainLoop()
 		//	}
 		//	if (i > 1999)break;
 		//}
-
 		//if (i < 10)
 		//{
 		//	cout << "too little" << endl;
 		//}
 		//else
 		//{
-
 		//	Mat	frame1;
 		////	cvtColor(frame, frame1, CV_BGR2GRAY);
 		//	Canny(frame, frame1, 70, 150);
@@ -96,7 +94,6 @@ void MethodGMM::MainLoop()
 		//float alpha = 1 / 100.0f;
 		//float beta = 1 / 100.0f;
 		//float gamma = 50 / 100.0f;
-
 		//CvSize size;
 		//size.width = 3;
 		//size.height = 3;
@@ -111,11 +108,10 @@ void MethodGMM::MainLoop()
 		//{
 		//	circle(frame, point[i], 2, Scalar(0, 0, 255), CV_FILLED, CV_AA);
 		//}
-
 		//delete[]point;
-
 		//imshow("asd", frame);
 		//}
+
 #pragma endregion
 
 		//轮廓聚类------------------------------
@@ -134,11 +130,10 @@ void MethodGMM::MainLoop()
 
 		//计算角速度----------------------------------------
 		w = w_calculator.calc(centers, rate);
-		w = 0;
 		cout << "FrameNO " << frameNo << "  角速度：" << w << "r/min" << endl;
 
 
-		imshow("foreground", foreground);
+		imshow("foreground", frame);
 		imshow("contours", result);
 		if (cv::waitKey(1) > 0)
 		{

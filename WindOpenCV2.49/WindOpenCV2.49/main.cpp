@@ -15,9 +15,9 @@ int main(int argc, char** argv)
 	MethodGMM methodGMM;
 	MethodDframe methodDframe;
 
-	string VideoPath = "./test.MOV";
+	string VideoPath = "./test.avi";
 
-	switch (dFRAME)
+	switch (GMM)
 	{
 	case GMM:	
 		if (methodGMM.initVideo(VideoPath))
